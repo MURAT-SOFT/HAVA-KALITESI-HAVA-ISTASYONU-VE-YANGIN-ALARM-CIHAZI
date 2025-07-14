@@ -1,0 +1,73 @@
+//*****************************************************************************
+// HG-2 HAVA ISTASYONU HAVA KALITESI OLCUM CIHAZI 
+// MURAT IRKAN 2021/03 LM135-LM335-LM57-BOSCH BME280-SITRONIX ST7735 1.8 & 2.4 INÇ_EKRAN
+// MCU: PIC16F877A;PIC18F452,PIC18F4520;PIC18F4550
+#define TFT_CS   PIN_D1
+#define TFT_DC   PIN_D0
+#define TFT_SPI_HARDWARE
+#include <18F452.h>// PIC18F452,PIC18f442,PIC18F4520 VEYA PIC16F877A MCU
+#fuses HS,NOWDT,NOPROTECT,NOLVP
+#device ADC=10//LM335,LM135,LM57-LM35,LM60,DHT22,TMP36,TC77
+#use delay(clock = 8MHz)
+#include <lcd.c>// NORMAL LCD 16x2 // SIMULASYON
+#include <ST7735_tft.c> // ST7735 1.8 INÇ RENKLI TFT EKRAN
+#use I2C(MASTER, I2C1, FAST = 400000, STREAM = BME280_STREAM)
+#include <bme280_lib.c>// BOSCH BME280 COKLU SENSOR
+char MESAJ[] = "SICAKLIK =  00.0 C";
+char MESAJ1[] =      "=  00.0 K";
+signed int16 Kelvin, Celsius;
+signed int32 SICAKLIK_DEGERI;
+unsigned int32 BASINC, NEM;
+
+void DIKDORTGEN_CIZ(unsigned int16 renk) { 
+// ST7735R RENKLI TFT-EKRAN DIKDORTGEN ANIMASYON
+  int16 x;
+    if(BME280_begin(MODE_NORMAL) == 0)
+  {  //  SENSOR BAGLANTI HATASI
+   // lcd_gotoxy(2, 2);    //2 SUTUN 2 SATIR A GIT 
+   // lcd_putc("BAGLANTI HATA.!");
+    while(TRUE);  // KAL.!
+  }
+
+  EKRAN_BOYA(ST7735_SIYAH);
+  for (x = 0; x < _width; x+=6) {
+    drawRect(_width/2 -x/2, _height/2 -x/2 , x, x, renk);
+  }
+}
+void main(){
+  setup_adc(ADC_CLOCK_INTERNAL);
+  setup_adc_ports(AN0);  // AN0 ADC GIRIS PINI ->LM335-LM35-LM57-LM60-MCP9700A ->SENSOR                     
+  set_adc_channel(0);// KANAL SEÇ                            
+  lcd_init();// LCD BAÞLAT                                    
+  lcd_putc('\f');// FAHRENHEIT ÝÞARETÝNÝ EKRANA KOY.!                                
+  while(TRUE){// SÜREKLÝ DÖNGÜYE GÝR.!
+    BME280_SICAKLIK_OKU(&SICAKLIK_DEGERI); // BOSCH BME280 SICAKLIK DEGERI OKU 
+    BME280_NEM_OKU(&NEM);// NEM OKU        
+    BME280_BASINC_OKU(&BASINC);   // BASINC OKU
+
+DIKDORTGEN_CIZ(ST7735_YESIL);// ST7735  EKRANA YEÞÝL DÝKDORTGEN ÇÝZ.!
+    delay_ms(1000);// 1 Sn geçikme.
+    Kelvin = read_adc() * 0.489;   //  kelvin cinsinden ADC PININDEN SENSÖRDEN VOLTAJ  DEGERÝNÝ OKU VE HESAPLA              
+    Celsius = Kelvin - 273;// CELCIUS CÝNSÝNE ÇEVÝR.!                      
+    if(Celsius < 0){ // BU DEGER 0 DAN KUCUK MU?
+      Celsius = abs(Celsius);                    // DEGERI YUVARLA
+      MESAJ[7] = '-';                         // MESAJ DEGÝSKENÝ LCD EKRANA  KOY
+    }
+    else
+      MESAJ[7]  = ' ';                        // LCD-BOÞLUK KOY
+    if (Celsius > 99)
+      MESAJ[7]  = 1 + 48;                     // 100 LER BASAMAK
+    MESAJ[8]  = (Celsius / 10) % 10  + 48;
+    MESAJ[9]  =  Celsius % 10  + 48;
+    MESAJ[12] = 223;                          // DERECE SEMBOL
+    MESAJ[2]  = (Kelvin / 100) % 10 + 48;
+    MESAJ[3]  = (Kelvin / 10) % 10 + 48;
+    MESAJ[4] = Kelvin % 10 + 48;
+    lcd_gotoxy(1, 1);                            // 1. SUTUN 1. SATIR
+    printf(lcd_putc, MESAJ);                  // DEGER YAZ
+    lcd_gotoxy(6, 2);                            // 6->2 YE GIT 
+    printf(lcd_putc, MESAJ1);                  // DEGER YAZ
+  }
+}
+
+

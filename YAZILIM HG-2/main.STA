@@ -1,0 +1,88 @@
+
+ROM used:   8064/32768 (25%)
+            8064/32768 (25%) including unused fragments
+
+            2.5 Average locations per line
+            8.3 Average locations per statement
+
+RAM used:   108/1536 (7%) at main() level
+            146/1536 (10%) worst case
+
+Stack used: 5 worst case (5 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   74    39   4  main.c
+  754     0   0  C:\Program Files (x86)\PICC\Devices\18F452.h
+  456    84   9  C:\Program Files (x86)\PICC\Drivers\lcd.c
+  846   600  62  ST7735_tft.c
+  435   129  13  C:\Program Files (x86)\PICC\Drivers\string.h
+   32     0   0  C:\Program Files (x86)\PICC\Drivers\stddef.h
+   28     0   0  C:\Program Files (x86)\PICC\Drivers\ctype.h
+  371   114  12  bme280_lib.c
+  195     0   0  C:\Program Files (x86)\PICC\Drivers\stdint.h
+----- -----
+ 3191   966 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     42   0    1             @delay_ms1
+0     62   0    3    596  5.9  lcd_read_byte
+0     12   0    0     59  4.2  lcd_read_nibble
+0     26   0    1    179  3.3  lcd_send_nibble
+0     58   0    3    460  4.7  lcd_send_byte
+0    116   1    6    814  7.2  lcd_init
+0     34   0    4    208  6.3  lcd_gotoxy
+0     80   0    1    354  4.7  lcd_putc
+0     12   0    1     30  1.1  spi_yaz
+0     20   0    1     84  1.3  KOMUT_YAZ
+0     20   0    1     84  1.3  BILGI_YAZ
+0     76   0    5    365  2.8  pencere_adresi_ayarla
+0    142   1   10    920  8.3  D_DIKDORTGEN
+0     26   0    2     66  1.6  EKRAN_BOYA
+0    100   1    8    594  7.8  DIKEY_CIZGI_CIZ
+0    102   1    8    594  7.8  drawFastHLine
+0    104   1    7    367  3.4  drawRect
+0    116   1    6             @DIVS1616
+0     28   0    1             @I2C_WRITEU_129
+0     28   0    1             @I2C_READU_129
+0     38   0    2    151  1.7  BME280_Write
+0     58   0    2    256  3.1  BME280_Read8
+0     74   0    3    440  4.3  BME280_Read16
+0     94   1   10    432  3.8  BME280_Configure
+0    452   3    9   2023  8.4  BME280_begin
+0    254   2    9   1262  4.9  BME280_Update
+0    794   5   20    601  5.3  BME280_SICAKLIK_OKU
+0    228   1   14             @DIVS3232
+0     84   1   14             @MUL3232
+0   1294   8   22   1182  6.8  BME280_NEM_OKU
+0   2126  13   26   1990  7.4  BME280_BASINC_OKU
+0    142   1   13             @DIV3232
+0    128   1    8    336  6.3  DIKDORTGEN_CIZ
+0    694   4    2   1265  8.2  MAIN
+0     56   0    2             @ITOF
+0    244   2   11             @MULFF
+0     58   0    4             @SFTOI
+0     38   0    2             @PSTRINGR_739
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               27
+    Statements              966
+    Comments                561
+    Volume (V)              26944
+    Difficulty (D)          128.6
+    Effort to implement (E) 3466024
+    Time to implement (T)   53 hours, 29 minutes
+    Est Delivered Bugs (B)  8
+    Cyclomatic Complexity   26
+    Maintainability (MI)    112
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  8060  24704  
+
+
+

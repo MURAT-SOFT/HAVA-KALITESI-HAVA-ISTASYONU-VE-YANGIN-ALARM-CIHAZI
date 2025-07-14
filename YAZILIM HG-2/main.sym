@@ -1,0 +1,301 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-005 strtok.save
+006.0   wrap
+007     colstart
+008     rowstart
+009     _tft_type
+00A-00D adc_T
+00E-011 adc_P
+012-015 adc_H
+016-019 t_fine
+01A-03A BME280_calib
+03B-04D MESAJ
+04E-057 MESAJ1
+058-059 Kelvin
+05A-05B Celsius
+05C-05F SICAKLIK_DEGERI
+060-063 BASINC
+064-067 NEM
+068-069 @sprintf_string
+06A-06B BME280_BASINC_OKU.pres
+06A-06D @SFTOI.P1
+06A-06B DIKDORTGEN_CIZ.renk
+06A-06B BME280_NEM_OKU.humi
+06A     lcd_init.i
+06A-06B BME280_SICAKLIK_OKU.temp
+06A     MAIN.@SCRATCH1
+06A     @PSTRINGR_739.@SCRATCH1
+06B-06E lcd_init.LCD_INIT_STRING
+06B     MAIN.@SCRATCH2
+06B     @PSTRINGR_739.@SCRATCH2
+06C-06D @DIVS1616.P1
+06C-06F BME280_NEM_OKU.v_x1_u32r
+06C-06F BME280_BASINC_OKU.var1
+06C-06D @ITOF.P1
+06C     lcd_putc.c
+06C-06F @MULFF.P1
+06C-06F BME280_SICAKLIK_OKU.var1
+06C-06D DIKDORTGEN_CIZ.x
+06D     lcd_gotoxy.x
+06E     lcd_gotoxy.y
+06E     BME280_begin.mode
+06E-06F EKRAN_BOYA.color
+06E-06F @DIVS1616.P1
+06E     DIKDORTGEN_CIZ.@SCRATCH1
+06F     lcd_gotoxy.address
+06F     BME280_begin.T_sampling
+06F     lcd_init.@SCRATCH1
+06F     DIKDORTGEN_CIZ.@SCRATCH2
+070-073 BME280_NEM_OKU.h
+070-073 BME280_BASINC_OKU.var2
+070-073 BME280_SICAKLIK_OKU.var2
+070     BME280_begin.H_sampling
+070     D_DIKDORTGEN.x
+070-073 @MULFF.P1
+070     lcd_gotoxy.@SCRATCH1
+070     @DIVS1616.@SCRATCH1
+070     DIKDORTGEN_CIZ.@SCRATCH3
+071     BME280_begin.P_sampling
+071     lcd_send_byte.address
+071     D_DIKDORTGEN.y
+071     @DIVS1616.@SCRATCH2
+071     DIKDORTGEN_CIZ.@SCRATCH4
+072     D_DIKDORTGEN.w
+072     BME280_begin.filter
+072     lcd_send_byte.n
+072     drawRect.x
+073     BME280_begin.standby
+073     lcd_read_byte.low
+073     D_DIKDORTGEN.h
+073     drawRect.y
+073     lcd_send_byte.@SCRATCH1
+074     lcd_read_byte.high
+074     BME280_Configure.mode
+074-077 BME280_BASINC_OKU.p
+074-077 BME280_Update.ret
+074     BME280_Read16.reg_addr
+074-075 D_DIKDORTGEN.color
+074     @delay_ms1.P1
+074     drawRect.w
+074     lcd_send_nibble.n
+074     BME280_begin.@SCRATCH1
+074     BME280_SICAKLIK_OKU.@SCRATCH1
+074     BME280_NEM_OKU.@SCRATCH1
+074     @MULFF.@SCRATCH1
+075     BME280_Configure.T_sampling
+075-076 BME280_Read16.ret
+075     drawRect.h
+075     lcd_read_byte.@SCRATCH1
+075     BME280_begin.@SCRATCH2
+075     BME280_SICAKLIK_OKU.@SCRATCH2
+075     BME280_NEM_OKU.@SCRATCH2
+075     @MULFF.@SCRATCH2
+076-077 drawRect.color
+076     BME280_Configure.H_sampling
+076     D_DIKDORTGEN.hi
+076     BME280_Read8.reg_addr
+076     BME280_begin.@SCRATCH3
+076     BME280_SICAKLIK_OKU.@SCRATCH3
+076     BME280_NEM_OKU.@SCRATCH3
+076     @MULFF.@SCRATCH3
+077     BME280_Configure.P_sampling
+077     BME280_Read8.ret
+077     D_DIKDORTGEN.lo
+077     BME280_SICAKLIK_OKU.@SCRATCH4
+077     BME280_NEM_OKU.@SCRATCH4
+078     @I2C_READU_129.P1
+078     BME280_Configure.filter
+078     D_DIKDORTGEN.@SCRATCH1
+078     drawRect.@SCRATCH1
+078     BME280_Update.@SCRATCH1
+078     BME280_SICAKLIK_OKU.@SCRATCH5
+078     BME280_NEM_OKU.@SCRATCH5
+078     BME280_BASINC_OKU.@SCRATCH1
+079     DIKEY_CIZGI_CIZ.x
+079     BME280_Configure.standby
+079     drawFastHLine.x
+079     D_DIKDORTGEN.@SCRATCH2
+079     BME280_Update.@SCRATCH2
+079     BME280_SICAKLIK_OKU.@SCRATCH6
+079     BME280_NEM_OKU.@SCRATCH6
+079     BME280_BASINC_OKU.@SCRATCH2
+07A     BME280_Configure._ctrl_hum
+07A     DIKEY_CIZGI_CIZ.y
+07A     drawFastHLine.y
+07A     BME280_Update.@SCRATCH3
+07A     BME280_SICAKLIK_OKU.@SCRATCH7
+07A     BME280_NEM_OKU.@SCRATCH7
+07A     BME280_BASINC_OKU.@SCRATCH3
+07B     DIKEY_CIZGI_CIZ.h
+07B     BME280_Configure._ctrl_meas
+07B     drawFastHLine.w
+07B     BME280_Update.@SCRATCH4
+07B     BME280_SICAKLIK_OKU.@SCRATCH8
+07B     BME280_NEM_OKU.@SCRATCH8
+07B     BME280_BASINC_OKU.@SCRATCH4
+07C     BME280_Configure._config
+07C-07F @DIV3232.P1
+07C-07D DIKEY_CIZGI_CIZ.color
+07C-07D drawFastHLine.color
+07C     BME280_Update.@SCRATCH5
+07C     BME280_SICAKLIK_OKU.@SCRATCH9
+07C     BME280_NEM_OKU.@SCRATCH9
+07C     BME280_BASINC_OKU.@SCRATCH5
+07D     BME280_Write.reg_addr
+07D     BME280_Configure.@SCRATCH1
+07D     BME280_SICAKLIK_OKU.@SCRATCH10
+07D     BME280_NEM_OKU.@SCRATCH10
+07D     BME280_BASINC_OKU.@SCRATCH6
+07E     DIKEY_CIZGI_CIZ.hi
+07E     BME280_Write._data
+07E     drawFastHLine.hi
+07E     BME280_NEM_OKU.@SCRATCH11
+07E     BME280_BASINC_OKU.@SCRATCH7
+07F     DIKEY_CIZGI_CIZ.lo
+07F     @I2C_WRITEU_129.P1
+07F     drawFastHLine.lo
+07F     BME280_NEM_OKU.@SCRATCH12
+07F     BME280_BASINC_OKU.@SCRATCH8
+080-083 @DIVS3232.P1
+080-083 @DIV3232.P2
+080     DIKEY_CIZGI_CIZ.@SCRATCH1
+080     drawFastHLine.@SCRATCH1
+080     BME280_BASINC_OKU.@SCRATCH9
+081     pencere_adresi_ayarla.x0
+081     BME280_BASINC_OKU.@SCRATCH10
+082     pencere_adresi_ayarla.y0
+082     BME280_BASINC_OKU.@SCRATCH11
+083     pencere_adresi_ayarla.x1
+083     BME280_BASINC_OKU.@SCRATCH12
+084-087 @MUL3232.P1
+084-087 @DIVS3232.P2
+084     pencere_adresi_ayarla.y1
+084     @DIV3232.@SCRATCH1
+085     KOMUT_YAZ.cmd_
+085     pencere_adresi_ayarla.@SCRATCH1
+085     @DIV3232.@SCRATCH2
+086     BILGI_YAZ.BILGI
+086     @DIV3232.@SCRATCH3
+087     spi_yaz.spidata
+087     @DIV3232.@SCRATCH4
+088-08B @MUL3232.P1
+088     @DIVS3232.@SCRATCH1
+088     @DIV3232.@SCRATCH5
+089     @DIVS3232.@SCRATCH2
+08A     @DIVS3232.@SCRATCH3
+08B     @DIVS3232.@SCRATCH4
+08C     @DIVS3232.@SCRATCH5
+08C     @MUL3232.@SCRATCH1
+08D     @DIVS3232.@SCRATCH6
+08D     @MUL3232.@SCRATCH2
+08E     @MUL3232.@SCRATCH3
+08F     @MUL3232.@SCRATCH4
+090     @MUL3232.@SCRATCH5
+091     @MUL3232.@SCRATCH6
+F83     lcd
+F83     PSP_DATA
+F8C     lcdlat
+F95     lcdtris
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002E  lcd_send_nibble
+000048  lcd_read_nibble
+000054  lcd_read_byte
+000092  lcd_send_byte
+0000CC  lcd_init
+000140  lcd_gotoxy
+000162  lcd_putc
+0001B2  @I2C_WRITEU_129
+0001CE  @I2C_READU_129
+0001EA  BME280_Update
+0002E8  @DIVS3232
+0003CC  @MUL3232
+000420  BME280_SICAKLIK_OKU
+00073A  BME280_NEM_OKU
+000C48  @DIV3232
+000CD6  BME280_BASINC_OKU
+001524  BME280_Read8
+00155E  BME280_Write
+001584  BME280_Read16
+0015CE  BME280_Configure
+00162C  BME280_begin
+0017F0  spi_yaz
+0017FC  KOMUT_YAZ
+001810  BILGI_YAZ
+001824  pencere_adresi_ayarla
+001870  D_DIKDORTGEN
+0018FE  EKRAN_BOYA
+001918  DIKEY_CIZGI_CIZ
+00197C  drawFastHLine
+0019E2  drawRect
+001A4A  DIKDORTGEN_CIZ
+001ACA  @ITOF
+001B02  @MULFF
+001BF6  @SFTOI
+001C30  @DIVS1616
+001CA4  @PSTRINGR_739
+001CCA  MAIN
+001CCA  @cinit1
+001CF0  @cinit2
+0135  _skip
+
+Project Directory:
+    D:\HAVA-STASYONU-main\HAVA ÝSTASYONU HG-2\HAVA ÝSTASYONU HG-2\YAZILIM HG-2\
+
+Project Files:
+    main.c                                                  [10-Oca-25 12:59  CRC=B7B32DEA]
+    C:\Program Files (x86)\PICC\Devices\18F452.h            [21-Eki-22 11:05  CRC=BE4AB2DC]
+    C:\Program Files (x86)\PICC\Drivers\lcd.c               [22-Þub-16 10:05  CRC=D1A6378A]
+    ST7735_tft.c                                            [03-Eyl-23 06:04  CRC=368C7ACD]
+    C:\Program Files (x86)\PICC\Drivers\string.h            [06-Nis-20 08:43  CRC=B1605627]
+    C:\Program Files (x86)\PICC\Drivers\stddef.h            [30-Oca-19 12:26  CRC=897CEC6C]
+    C:\Program Files (x86)\PICC\Drivers\ctype.h             [03-Oca-08 15:55  CRC=2D1F019F]
+    bme280_lib.c                                            [03-Eyl-23 05:19  CRC=3F907519]
+    C:\Program Files (x86)\PICC\Drivers\stdint.h            [13-May-20 09:33  CRC=4FD89CC0]
+
+Source signature=C56E85E8
+Program memory checksum=0000
+Hex file CRC=CB44
+
+Units:
+    D:\HAVA-STASYONU-main\HAVA ÝSTASYONU HG-2\HAVA ÝSTASYONU HG-2\YAZILIM HG-2\main (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX32:      main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA
